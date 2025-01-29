@@ -1,0 +1,9 @@
+- name: Instalar kubeadm, kubelet e kubectl
+  apt:
+    name:
+      - kubelet
+      - kubeadm
+      - kubectl
+    state: present
+- name: Inicializar o Control Plane
+  command: kubeadm init --pod-network-cidr=192.168.0.0/16
