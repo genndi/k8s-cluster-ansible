@@ -1,0 +1,7 @@
+- name: Atualizar pacotes do sistema
+  apt:
+    update_cache: yes
+    upgrade: dist
+- name: Desativar swap
+  command: swapoff -a
+  when: ansible_virtualization_type != "docker"
