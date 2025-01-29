@@ -1,0 +1,9 @@
+- name: Instalar kubeadm, kubelet e kubectl
+  apt:
+    name:
+      - kubelet
+      - kubeadm
+      - kubectl
+    state: present
+- name: Associar o Worker ao cluster
+  command: "{{ hostvars['master']['join_command'] }}"
